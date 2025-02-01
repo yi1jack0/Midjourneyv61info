@@ -23,7 +23,7 @@ def process_images(input_folder, output_folder):
         if ext not in ALLOWED_EXTENSIONS:
             continue
         
-        if any(x in filename for x in ['-PROCESSING-', '-DONE-']):
+        if '-PROCESSING-' in filename or '-DONE-' in filename:
             continue
         
         valid_files.append(filename)
@@ -42,25 +42,25 @@ def process_images(input_folder, output_folder):
         except FileNotFoundError:
             continue
 
-        output_filename = f"{base}-{timestamp}{ext}"  # Maintain original filename for output
-        output_path = os.path.join(output_folder, output_filename)
-
         try:
             with Image.open(processing_path) as img:
-                if img.width != 1200:
-                    ratio = 1200 / img.width
-                    new_height = int(img.height * ratio)
-                    img = img.resize((1200, new_height), Image.LANCZOS)
+                width = 1200
+                original_width, original_height = img.size
+                if original_width != width:
+                    ratio = width / original_width
+                    new_height = int(original_height * ratio)
+                    img = img.resize((width, new_height), Image.LANCZOS)
                 
-                # Save with original filename to output folder
+                # Create output filename with timestamp
+                output_filename = processing_filename.replace("-PROCESSING-", "-")
+                output_path = os.path.join(output_folder, output_filename)
                 img.save(output_path, quality=95, optimize=True)
-                
         except Exception as e:
             print(f"\nError processing {filename}: {str(e)}")
             continue
         finally:
-            # Rename to DONE even if processing failed
-            done_filename = f"{base}-DONE-{timestamp}{ext}"
+            # Create DONE filename
+            done_filename = processing_filename.replace("-PROCESSING-", "-DONE-")
             done_path = os.path.join(input_folder, done_filename)
             if os.path.exists(processing_path):
                 os.rename(processing_path, done_path)
