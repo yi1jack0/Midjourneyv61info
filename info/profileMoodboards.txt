@@ -37,7 +37,7 @@ Looking at the provided prompts, they consistently demonstrate these principles.
 
 
 Profiles and Moodboards
-Hi everyone, we’re releasing an early version of our new model personalization infrastructure today
+Hi everyone, we're releasing an early version of our new model personalization infrastructure today
 Flagship features
 You can now have multiple personalization profiles
 Setting up personalization is now much faster (up to 5x faster)
@@ -98,34 +98,34 @@ If your prompt uses --style raw --p (both) they are blended and --s modifies the
 
 prompt examples:
 1:
-“photo of a joyful elderly man with white hair, a beard, and glasses, carrying a smiling child with spiky black hair on his shoulders. The characters are surrounded by a clear blue sky with scattered white clouds, and delicate butterflies fluttering around. The elderly man wears a dark robe with yellow accents and golden bead necklace, while the child wears a dark outfit with light trims. The mood is cheerful and uplifting, emphasizing familial bonding and playful energy. Gentle, soft colors and rounded, exaggerated shapes create a friendly and nostalgic atmosphere. --ar 16:9 --sref https://s.mj.run/wjdET5GRMOE --profile ucncfyq gnnot2m l3viaqs --sw 10 --stylize 460”
+"photo of a joyful elderly man with white hair, a beard, and glasses, carrying a smiling child with spiky black hair on his shoulders. The characters are surrounded by a clear blue sky with scattered white clouds, and delicate butterflies fluttering around. The elderly man wears a dark robe with yellow accents and golden bead necklace, while the child wears a dark outfit with light trims. The mood is cheerful and uplifting, emphasizing familial bonding and playful energy. Gentle, soft colors and rounded, exaggerated shapes create a friendly and nostalgic atmosphere. --ar 16:9 --sref https://s.mj.run/wjdET5GRMOE --profile ucncfyq gnnot2m l3viaqs --sw 10 --stylize 460"
 
 2:
-“https://s.mj.run/WWymxgA7_O4 Humpback whale underwater portrait, crystal-clear turquoise ocean depths. Majestic whale swimming at an upward angle, displaying dark textured skin with prominent ventral grooves and extended pectoral fins. Dramatic crepuscular rays pierce through rippling surface waters, casting dappled light across the whale's massive profile. Dynamic ocean currents create surface patterns, while deep turquoise waters fade to darker depths. The composition balances the whale's scale against the vast ocean expanse --ar 2:3 --style raw”
+"https://s.mj.run/WWymxgA7_O4 Humpback whale underwater portrait, crystal-clear turquoise ocean depths. Majestic whale swimming at an upward angle, displaying dark textured skin with prominent ventral grooves and extended pectoral fins. Dramatic crepuscular rays pierce through rippling surface waters, casting dappled light across the whale's massive profile. Dynamic ocean currents create surface patterns, while deep turquoise waters fade to darker depths. The composition balances the whale's scale against the vast ocean expanse --ar 2:3 --style raw"
 
 3:
-“https://s.mj.run/dk-e5wMWeX8 waterline photography of a humpback whale swimming underwater, eye with fine details, some barnacles on the skin. The ocean below is a gradient of deep blue, above is cloudy sky and gentle waves. --ar 16:9”
+"https://s.mj.run/dk-e5wMWeX8 waterline photography of a humpback whale swimming underwater, eye with fine details, some barnacles on the skin. The ocean below is a gradient of deep blue, above is cloudy sky and gentle waves. --ar 16:9"
 
 4:
-“https://s.mj.run/wKHiN2KATqE A young, handsome boy with glowing blue cybernetic eyes holds a small, futuristic hedgehog with metallic spines. The sandy desert is transformed into a neon-lit cyberpunk wasteland with glowing holograms and futuristic structures in the distance. The golden sand reflects vibrant hues of neon blue and pink, creating a dramatic and cinematic atmosphere --ar 16:9 --profile r32hfq7 --stylize 60”
+"https://s.mj.run/wKHiN2KATqE A young, handsome boy with glowing blue cybernetic eyes holds a small, futuristic hedgehog with metallic spines. The sandy desert is transformed into a neon-lit cyberpunk wasteland with glowing holograms and futuristic structures in the distance. The golden sand reflects vibrant hues of neon blue and pink, creating a dramatic and cinematic atmosphere --ar 16:9 --profile r32hfq7 --stylize 60"
 
 5:
-“A mysterious hooded figure with an intense gaze, sitting in a high-tech cyberpunk control room, surrounded by glowing neon screens and holographic interfaces, the color palette dominated by cold blue and teal tones with contrasting accents of orange and red, the lighting is moody and cinematic, emphasizing the figure’s anonymity and focus, a futuristic dystopian atmosphere, intricate technological details in the background, realistic and detailed textures, dramatic shadows and highlights, central composition with symmetrical balance, 4k resolution, hyperrealistic, cyberpunk aesthetic --ar 91:51 --stylize 50”
+"A mysterious hooded figure with an intense gaze, sitting in a high-tech cyberpunk control room, surrounded by glowing neon screens and holographic interfaces, the color palette dominated by cold blue and teal tones with contrasting accents of orange and red, the lighting is moody and cinematic, emphasizing the figure's anonymity and focus, a futuristic dystopian atmosphere, intricate technological details in the background, realistic and detailed textures, dramatic shadows and highlights, central composition with symmetrical balance, 4k resolution, hyperrealistic, cyberpunk aesthetic --ar 91:51 --stylize 50"
 
 6:
-“A small whimsical wooden house with intricate details and a steep roof, nestled in a bright, sunlit enchanted forest with towering trees. Soft warm yellow sunlight filters through the trees, creating dappled light on the lush green foliage. A small arched stone bridge crosses a calm, reflective pond in front of the house, surrounded by moss-covered rocks. magical yet serene warm tones --ar 16:9 --profile t6samk4 --stylize 90”
+"A small whimsical wooden house with intricate details and a steep roof, nestled in a bright, sunlit enchanted forest with towering trees. Soft warm yellow sunlight filters through the trees, creating dappled light on the lush green foliage. A small arched stone bridge crosses a calm, surrounded by moss-covered rocks. magical yet serene warm tones --ar 16:9 --profile t6samk4 --stylize 90"
 
 7:
-“https://s.mj.run/QBErD79xTbk A photograph of Los Angeles skyscrapers taken from the ground, soft blue clear shy. --ar 91:51 --stylize 50”
+"https://s.mj.run/QBErD79xTbk A photograph of Los Angeles skyscrapers taken from the ground, soft blue clear shy. --ar 91:51 --stylize 50"
 
 8:
-“Photo of a traditional circular Korean madang courtyard during the spring season at sunrise, featuring vibrant blossoms of cherry trees surrounding the courtyard. The stone pathway leads to a wooden hanok with intricate lattice windows, soft sunlight illuminating mossy stones and fresh greenery. Tranquil and balanced design, blending traditional Korean architecture with lush springtime elements. --ar 16:9 --stylize 50”
+"Photo of a traditional circular Korean madang courtyard during the spring season at sunrise, featuring vibrant blossoms of cherry trees surrounding the courtyard. The stone pathway leads to a wooden hanok with intricate lattice windows, soft sunlight illuminating mossy stones and fresh greenery. Tranquil and balanced design, blending traditional Korean architecture with lush springtime elements. --ar 16:9 --stylize 50"
 
 9:
-“https://s.mj.run/wSFmKgZ17zc A 3D abstract composition of geometric shapes with a focus on dynamic squares and rectangles, radiating outward from a central focal point. The design features a dark gray background, with shapes in varying sizes and shades of blue, black, gray, and white. The arrangement conveys depth and movement, with elements becoming denser and smaller near the center. Clean, futuristic, and modern aesthetic, flat even lighting, emphasizing contrast and sharp edges, digital art style, high resolution --ar 16:9 --sref https://s.mj.run/n2Vz6GWG3oM --sw 25 --stylize 50 --iw 0.6”
+"https://s.mj.run/wSFmKgZ17zc A 3D abstract composition of geometric shapes with a focus on dynamic squares and rectangles, radiating outward from a central focal point. The design features a dark gray background, with shapes in varying sizes and shades of blue, black, gray, and white. The arrangement conveys depth and movement, with elements becoming denser and smaller near the center. Clean, futuristic, and modern aesthetic, flat even lighting, emphasizing contrast and sharp edges, digital art style, high resolution --ar 16:9 --sref https://s.mj.run/n2Vz6GWG3oM --sw 25 --stylize 50 --iw 0.6"
 
 10:
-“A majestic adult golden tabby tiger with silky, fluffy fur and a pale cream-to-golden gradient, its face framed by thick, soft fur. The tiger gazes directly at the viewer with large, soulful eyes, its pink nose and subtle whiskers adding to its charm. The background features a serene, glowing meadow with blurred wildflowers, creating a magical and inviting atmosphere. Hyper-detailed, soft golden light, dreamy mood --ar 16:9 --stylize 50”
+"A majestic adult golden tabby tiger with silky, fluffy fur and a pale cream-to-golden gradient, its face framed by thick, soft fur. The tiger gazes directly at the viewer with large, soulful eyes, its pink nose and subtle whiskers adding to its charm. The background features a serene, glowing meadow with blurred wildflowers, creating a magical and inviting atmosphere. Hyper-detailed, soft golden light, dreamy mood --ar 16:9 --stylize 50"
 
 some moodboards and their code :
 Chinese New Year Theme photos --> sniu4nv
@@ -147,7 +147,7 @@ my landscape profile --> c2eqeep
             "short_and_simple_prompts": "These typically generate the best images. Use clear phrases that describe what you want to see.",
             "choose_the_right_words": "Use specific synonyms to get better results. For example, instead of 'big,' use 'huge' or 'gigantic.'",
             "be_specific_with_numbers": "Use specific numbers like 'three cats' instead of plural words like 'cats.'",
-            "focus_on_what_you_want": "Describe what you do want instead of what you don’t.",
+            "focus_on_what_you_want": "Describe what you do want instead of what you don't.",
             "prompt_length_and_details": {
                 "description": "Prompts can be simple, even a single word or emoji. Short prompts let Midjourney's default style fill in the gaps. Include specific elements if they are important to you.",
                 "areas_to_consider": {
@@ -157,7 +157,25 @@ my landscape profile --> c2eqeep
                     "lighting": "What kind (soft, ambient, overcast, neon, studio lights).",
                     "color": "In what shades (vibrant, muted, bright, monochromatic, colorful, black and white, pastel).",
                     "mood": "Feelings to evoke (playful, calm, gloomy, energetic).",
-                    "composition": "How is it framed (portrait, headshot, closeup, birds-eye view)."
+                    "composition": "How is it framed (portrait, headshot, closeup, birds-eye view).",
+                    "scene_decomposition": {
+                        "description": "Break complex concepts into layered elements",
+                        "methodology": [
+                            {"subject_layer": "Primary focus (e.g. 'knight in red armor')"},
+                            {"feature_layer": "Key details (e.g. 'glowing eyes', 'engraved patterns')"},
+                            {"environment_layer": "Background context (e.g. 'dark castle throne room')"},
+                            {"atmosphere_layer": "Mood elements (e.g. 'menacing glow', 'dramatic shadows')"}
+                        ],
+                        "examples": {
+                            "bad": "A spaceship flying over mountains with city below",
+                            "good": [
+                                "1. Crescent-shaped starship with glowing engines",
+                                "2. Mountain range with crystal peaks",
+                                "3. Fog-shrouded metropolis in valley",
+                                "4. Aurora borealis light effects"
+                            ]
+                        }
+                    }
                 }
             }
         },
@@ -326,7 +344,56 @@ my landscape profile --> c2eqeep
             "Garden",
             "Suburban",
             "Ocean"
-        ]
+        ],
+        "composition_guidelines": {
+            "spatial_relationships": {
+                "warning": "Avoid explicit positional terms that Midjourney may interpret literally",
+                "solution": "Use inherent compositional relationships",
+                "implementation": [
+                    {"size_differential": "Larger elements perceived as closer"},
+                    {"occlusion": "Partially hidden elements read as background"},
+                    {"detail_density": "Higher detail areas interpreted as focal points"}
+                ],
+                "examples": {
+                    "bad": [
+                        "A spaceship behind the mountain",
+                        "Flames in front of the figure"
+                    ],
+                    "good": [
+                        "Towering mountain range partially obscuring crescent-shaped starship hull",
+                        "Thermal plasma tendrils enveloping the figure's silhouette"
+                    ]
+                },
+                "technical_note": "v6.1 uses: 1) Relative scale 2) Texture gradient 3) Aerial perspective 4) Depth-from-focus"
+            },
+            "natural_language_rules": {
+                "color_descriptors": {
+                    "rule": "Use basic color names + material types",
+                    "examples": {
+                        "bad": ["#FF0000 armor", "Pantone 19-4052 TCX"],
+                        "good": ["blood-red steel plating", "navy-blue velvet cloak"]
+                    }
+                },
+                "spatial_relationships": {
+                    "rule": "Imply position through context",
+                    "techniques": [
+                        "Size comparison (larger = foreground)",
+                        "Detail density (sharp = focal point)",
+                        "Light interaction (shadows = behind)"
+                    ],
+                    "examples": {
+                        "bad": [
+                            "A throne behind the knight",
+                            "Flames in front of the figure"
+                        ],
+                        "good": [
+                            "A massive obsidian throne dwarfing the armored knight",
+                            "Dancing flames enveloping the figure's silhouette"
+                        ]
+                    }
+                }
+            }
+        }
     },
     "ImagePrompts": {
         "description": "Influence the content, composition, and colors of your Midjourney creations by including an image along with your text prompt.",
@@ -902,6 +969,18 @@ my landscape profile --> c2eqeep
                 "vibrant California poppies --ar 2:3, (Using punctuation in parameters)",
                 "vibrant California --ar 2:3 poppies (Prompt text after parameters)"
             ]
+        },
+        "parameter_usage": {
+            "formatting_rules": {
+                "no_parentheses": "Keep parameters clean: '--ar 16:9' not (--ar 16:9)",
+                "validated_parameters": [
+                    "--ar", "--stylize", "--no", "--profile", "--sref"
+                ],
+                "example": {
+                    "bad": "glowing eyes (hex #FFFFFF) --stylize(85)",
+                    "good": "glowing white eyes --stylize 85"
+                }
+            }
         }
     }
 }
