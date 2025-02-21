@@ -1,143 +1,165 @@
-Key Aspects of Effective Prompting in Midjourney:
-
-Visual Hierarchy Requirements:
-Prompts should establish clear visual priorities
-Main elements need to be described before secondary details
-Important to specify dominant visual elements and their relationships
-Example from the prompts: "A mysterious hooded figure with an intense gaze" establishes the main subject before describing the surrounding "high-tech cyberpunk control room"
-
-Detail vs. Focus Balance:
-Avoid overwhelming prompts with too many competing details
-Establish a clear focal point while maintaining coherent scene composition
-Details should support rather than distract from the main subject
-Example from the prompts: The Korean madang courtyard prompt balances architectural details with natural elements without overcrowding
-
-Natural Language Parsing:
-Use descriptive, visual-focused language
-Avoid abstract or conceptual terms that don't translate to visual elements
-Focus on tangible, physical descriptions
-Example from the prompts: "soft warm yellow sunlight filters through the trees" uses concrete visual descriptions
-
-Physical/Visual Elements Priority:
-Emphasize describable visual characteristics over abstract concepts
-
-Focus on:
-Colors
-Textures
-Lighting
-Physical forms
-Spatial relationships
-
-Minimize abstract concepts like emotions or meanings unless tied to visual elements
-Example from the prompts: The geometric composition prompt focuses on "squares and rectangles, radiating outward" rather than abstract concepts
-Looking at the provided prompts, they consistently demonstrate these principles. For instance, the tiger prompt:
-"A majestic adult golden tabby tiger with silky, fluffy fur and a pale cream-to-golden gradient" - focuses on physical characteristics
-"its face framed by thick, soft fur" - establishes visual hierarchy
-"The background features a serene, glowing meadow with blurred wildflowers" - maintains clear focus while adding context
-
-
-Profiles and Moodboards
-Hi everyone, we're releasing an early version of our new model personalization infrastructure today
-Flagship features
-You can now have multiple personalization profiles
-Setting up personalization is now much faster (up to 5x faster)
-You can now personalize models with moodboards of uploaded images
-Try it out at midjourney.com/personalize
-
-More Features / Information
-Personalization profiles both 'converge' more quickly and need fewer to get started. You'll need 40 ratings to get started, and the profile should be fairly stable by 200. You'll still notice that 2,000 ratings will improve the performance, but you shouldn't practically need 10,000 anymore.
-Moodboards take inspiration from the images that you add. As you add more diverse images to the board, the model will start to remix them in more complex ways.
-You can name model profiles and select one or many as default
-You can see all images made with particular profiles
-We hope these features let everyone use personalization, whether you are working on multiple projects or with multiple people.
-You're now able to mix together multiple moodboards as well as moodboards with style references. Just add multiple codes like "--sref 142710498 --profile drgmjoi 2jrqbw6"
-
-more details::
-
-Personalization profiles (--p) create images using our own aesthetic preferences.
-How do I make a personalization profile?
-Your default or global profile is generated when you rank/rate at least 40 images by choosing "Create Standard Profile" @ https://www.midjourney.com/personalize
-The default or global profile is entered automatically if you use --p by itself in a prompt.
-You can also create named profiles which you can reference with --p code.
-There are two kinds of named profiles: built from your ranking, or built from a moodboard which you create yourself.
-
-What are moodboards?
-Moodboards are NOT just multi-image style references. That is, they are not the same thing as using --sref URL URL URL URL. This is because sref draws from visual style only, while moodboards also pull composition, color, subject matter, visual conventions, detail level, motifs, vibes, aesthetics, etc.
-The variety of input images directly affects output variation: similar images produce uniform styles, while diverse images yield far more complex, blended outputs.
-Currently, moo bards max cap at 500 images.
-
-How do I use personalization profiles?
-We've marked these items with :Discord: for Discord and 🌐 for website. Otherwise the note works for both!
-Type --p after your prompt to use the default/global profile.
-Type --p code after your prompt to use a specific profile.
-:Discord: Discord Only: Type /list_personalize_codes to show all your profiles.
-🌐 Web Only: Manage your profiles using the website @ https://www.midjourney.com/personalize
-:Discord: Discord Only: Toggle personalization on permanently (so you do not have to keep typing --p) type /settings and select the [🙋 Personalization] button.
-🌐 Web Only: Click the options button and look for 'Personalization: [ON] [OFF]'.
-If you want to use someone else's code, use --p code.
-:Discord: Discord Only: In Discord public creation channels, you can use --p @name instead. (Won't work in DMs.)
-
-Blending
-Use multiple --p codes at once, to blend together different personal styles (6.0 and 6.1 codes won't blend).
-Example: --p 1uwjacn 1yjtfcj
-Change the influence of the codes using standard weighting syntax.
-Example: --p 1uwjacn::1 1yjtfcj::0.5
-🌐 On the web, only use whole/natural numbers. Using decimals will throw an error.
-You can also blend --p with --sref and --cref and image prompts.
-Example: owl --sref 4082972121 --p vlp7b25 r9gm7l6
-You can faux-weight by creating duplicate or highly similar boards and referencing them multiple times.
-Example: --sref orange --p green blue
-Here, the --p would be twice as influential as the style reference, so the image would be mostly cool colors.
-Example: --sref red orange yellow --p green
-Here, the --sref would be three times as influential, so the image would be mostly warm colors.
-
-More tips.
-Order doesn't matter.
-Personalization (--p) is a --style, just like --style raw (with which it is fully compatible). This means you can control its "loudness" by using --stylize which is --s 100 by default. The value of 0 is its lowest influence, and the value 1000 is its maximum influence. You can learn more about --s here: ⁠📘 Parameters: --style, --styliz…
-If your prompt uses --style raw --p (both) they are blended and --s modifies the amalgam.
-
-prompt examples:
-1:
-"photo of a joyful elderly man with white hair, a beard, and glasses, carrying a smiling child with spiky black hair on his shoulders. The characters are surrounded by a clear blue sky with scattered white clouds, and delicate butterflies fluttering around. The elderly man wears a dark robe with yellow accents and golden bead necklace, while the child wears a dark outfit with light trims. The mood is cheerful and uplifting, emphasizing familial bonding and playful energy. Gentle, soft colors and rounded, exaggerated shapes create a friendly and nostalgic atmosphere. --ar 16:9 --sref https://s.mj.run/wjdET5GRMOE --profile ucncfyq gnnot2m l3viaqs --sw 10 --stylize 460"
-
-2:
-"https://s.mj.run/WWymxgA7_O4 Humpback whale underwater portrait, crystal-clear turquoise ocean depths. Majestic whale swimming at an upward angle, displaying dark textured skin with prominent ventral grooves and extended pectoral fins. Dramatic crepuscular rays pierce through rippling surface waters, casting dappled light across the whale's massive profile. Dynamic ocean currents create surface patterns, while deep turquoise waters fade to darker depths. The composition balances the whale's scale against the vast ocean expanse --ar 2:3 --style raw"
-
-3:
-"https://s.mj.run/dk-e5wMWeX8 waterline photography of a humpback whale swimming underwater, eye with fine details, some barnacles on the skin. The ocean below is a gradient of deep blue, above is cloudy sky and gentle waves. --ar 16:9"
-
-4:
-"https://s.mj.run/wKHiN2KATqE A young, handsome boy with glowing blue cybernetic eyes holds a small, futuristic hedgehog with metallic spines. The sandy desert is transformed into a neon-lit cyberpunk wasteland with glowing holograms and futuristic structures in the distance. The golden sand reflects vibrant hues of neon blue and pink, creating a dramatic and cinematic atmosphere --ar 16:9 --profile r32hfq7 --stylize 60"
-
-5:
-"A mysterious hooded figure with an intense gaze, sitting in a high-tech cyberpunk control room, surrounded by glowing neon screens and holographic interfaces, the color palette dominated by cold blue and teal tones with contrasting accents of orange and red, the lighting is moody and cinematic, emphasizing the figure's anonymity and focus, a futuristic dystopian atmosphere, intricate technological details in the background, realistic and detailed textures, dramatic shadows and highlights, central composition with symmetrical balance, 4k resolution, hyperrealistic, cyberpunk aesthetic --ar 91:51 --stylize 50"
-
-6:
-"A small whimsical wooden house with intricate details and a steep roof, nestled in a bright, sunlit enchanted forest with towering trees. Soft warm yellow sunlight filters through the trees, creating dappled light on the lush green foliage. A small arched stone bridge crosses a calm, surrounded by moss-covered rocks. magical yet serene warm tones --ar 16:9 --profile t6samk4 --stylize 90"
-
-7:
-"https://s.mj.run/QBErD79xTbk A photograph of Los Angeles skyscrapers taken from the ground, soft blue clear shy. --ar 91:51 --stylize 50"
-
-8:
-"Photo of a traditional circular Korean madang courtyard during the spring season at sunrise, featuring vibrant blossoms of cherry trees surrounding the courtyard. The stone pathway leads to a wooden hanok with intricate lattice windows, soft sunlight illuminating mossy stones and fresh greenery. Tranquil and balanced design, blending traditional Korean architecture with lush springtime elements. --ar 16:9 --stylize 50"
-
-9:
-"https://s.mj.run/wSFmKgZ17zc A 3D abstract composition of geometric shapes with a focus on dynamic squares and rectangles, radiating outward from a central focal point. The design features a dark gray background, with shapes in varying sizes and shades of blue, black, gray, and white. The arrangement conveys depth and movement, with elements becoming denser and smaller near the center. Clean, futuristic, and modern aesthetic, flat even lighting, emphasizing contrast and sharp edges, digital art style, high resolution --ar 16:9 --sref https://s.mj.run/n2Vz6GWG3oM --sw 25 --stylize 50 --iw 0.6"
-
-10:
-"A majestic adult golden tabby tiger with silky, fluffy fur and a pale cream-to-golden gradient, its face framed by thick, soft fur. The tiger gazes directly at the viewer with large, soulful eyes, its pink nose and subtle whiskers adding to its charm. The background features a serene, glowing meadow with blurred wildflowers, creating a magical and inviting atmosphere. Hyper-detailed, soft golden light, dreamy mood --ar 16:9 --stylize 50"
-
-some moodboards and their code :
-Chinese New Year Theme photos --> sniu4nv
-classic Chinese artwork --> qv55fux 
-2025 Chinese New Year digital realistic digital art --> gnnot2m
-Greens in garden -->  ucncfyq
-cybot portrait --> r32hfq7
-my global profile --> ijid9xo
-my landscape profile --> c2eqeep
-
-
 {
+    "introduction": {
+        "purpose": "This JSON file teaches LLMs my preferred prompting style for Midjourney, an AI art generator that creates images from text prompts using parameters like --ar (aspect ratio) and --p (personalization). It includes my personal approach and detailed Midjourney mechanics.",
+        "audience": "Intended for any LLM to interpret and replicate my aesthetic and technical preferences."
+    },
+    "key_aspects_of_effective_prompting": {
+        "visual_hierarchy": {
+            "description": "Prompts should establish clear visual priorities by describing main elements before secondary details and specifying dominant visual elements and their relationships.",
+            "requirements": [
+                "Establish clear visual priorities",
+                "Describe main elements before secondary details",
+                "Specify dominant visual elements and their relationships"
+            ],
+            "example": {
+                "prompt": "A mysterious hooded figure with an intense gaze, sitting in a high-tech cyberpunk control room",
+                "explanation": "Establishes the main subject (hooded figure) before describing the surrounding (control room)."
+            }
+        },
+        "detail_vs_focus_balance": {
+            "description": "Avoid overwhelming prompts with too many competing details, establishing a clear focal point while maintaining coherent scene composition, with details supporting rather than distracting from the main subject.",
+            "guidelines": [
+                "Avoid too many competing details",
+                "Establish a clear focal point",
+                "Maintain coherent scene composition",
+                "Details should support the main subject"
+            ],
+            "example": {
+                "prompt": "Photo of a traditional circular Korean madang courtyard during the spring season at sunrise, featuring vibrant blossoms of cherry trees surrounding the courtyard",
+                "explanation": "Balances architectural details with natural elements without overcrowding."
+            }
+        },
+        "natural_language_parsing": {
+            "description": "Use descriptive, visual-focused language, avoiding abstract or conceptual terms that don’t translate to visual elements, focusing on tangible, physical descriptions.",
+            "rules": [
+                "Use descriptive, visual-focused language",
+                "Avoid abstract or conceptual terms",
+                "Focus on tangible, physical descriptions"
+            ],
+            "example": {
+                "prompt": "Soft warm yellow sunlight filters through the trees",
+                "explanation": "Uses concrete visual descriptions instead of abstract terms."
+            }
+        },
+        "physical_visual_elements_priority": {
+            "description": "Emphasize describable visual characteristics over abstract concepts, focusing on colors, textures, lighting, physical forms, and spatial relationships, minimizing abstract concepts like emotions or meanings unless tied to visual elements.",
+            "focus_areas": [
+                "Colors",
+                "Textures",
+                "Lighting",
+                "Physical forms",
+                "Spatial relationships"
+            ],
+            "guidelines": [
+                "Prioritize describable visual characteristics",
+                "Minimize abstract concepts unless tied to visuals"
+            ],
+            "examples": [
+                {
+                    "prompt": "A majestic adult golden tabby tiger with silky, fluffy fur and a pale cream-to-golden gradient, its face framed by thick, soft fur. The background features a serene, glowing meadow with blurred wildflowers",
+                    "breakdown": {
+                        "physical_characteristics": "Focuses on silky fur and color gradient",
+                        "hierarchy": "Face framed by fur establishes visual priority",
+                        "focus": "Blurred meadow maintains clear focus on the tiger"
+                    }
+                },
+                {
+                    "prompt": "A 3D abstract composition of geometric shapes with a focus on dynamic squares and rectangles, radiating outward",
+                    "explanation": "Focuses on physical forms (squares, rectangles) rather than abstract concepts."
+                }
+            ]
+        },
+        "consistency_note": "The provided prompts consistently demonstrate these principles, balancing physical descriptions with clear hierarchy and focus."
+    },
+    "profiles_and_moodboards": {
+        "overview": {
+            "release_note": "Early version of model personalization infrastructure released, featuring multiple profiles, faster setup (up to 5x faster), and moodboard personalization.",
+            "source": "midjourney.com/personalize"
+        },
+        "flagship_features": [
+            "Multiple personalization profiles",
+            "Faster personalization setup (up to 5x faster)",
+            "Personalization with moodboards of uploaded images"
+        ],
+        "personalization_profiles": {
+            "description": "Profiles (--p) create images using your aesthetic preferences, converging quickly with fewer ratings needed.",
+            "rating_requirements": {
+                "minimum": "40 ratings to start",
+                "stable": "200 ratings for stability",
+                "improved": "2000 ratings for enhanced performance",
+                "previous_max": "No longer need 10,000 ratings"
+            },
+            "creation": {
+                "global_profile": {
+                    "method": "Rank/rate 40 images and choose 'Create Standard Profile' at https://www.midjourney.com/personalize",
+                    "usage": "Automatically applied with --p alone",
+                    "code": "ijid9xo"
+                },
+                "named_profiles": {
+                    "types": [
+                        "Built from your ranking",
+                        "Built from a moodboard you create"
+                    ],
+                    "usage": "Reference with --p <code>",
+                    "examples": {
+                        "landscape_profile": "c2eqeep",
+                        "cybot_portrait": "r32hfq7",
+                        "greens_in_garden": "ucncfyq",
+                        "chinese_new_year_2025": "gnnot2m",
+                        "classic_chinese_artwork": "qv55fux",
+                        "chinese_new_year_theme": "sniu4nv"
+                    }
+                }
+            },
+            "preferred_combinations": {
+                "combo_1": {
+                    "codes": ["l2vlr4v", "xzmzxdw", "8h3cnwa"],
+                    "example": "A blend for bold, abstract, and peaceful aesthetics with strong contrasting colors. --p l2vlr4v xzmzxdw 8h3cnwa --ar 16:9 --style raw --stylize 50"
+                },
+                "combo_2": {
+                    "codes": ["l2vlr4v", "xzmzxdw"],
+                    "example": "A simpler blend focusing on abstract air flows and bold visuals. --p l2vlr4v xzmzxdw --ar 16:9 --style raw --stylize 50"
+                },
+                "combo_3": {
+                    "codes": ["dg84cpz", "d1a6wbq"],
+                    "example": "A combination for abstract, semi-transparent forms with a peaceful vibe. --p dg84cpz d1a6wbq --ar 16:9 --style raw --stylize 50"
+                }
+            }
+        },
+        "moodboards": {
+            "description": "Moodboards pull inspiration from uploaded images, influencing composition, color, subject matter, visual conventions, detail level, motifs, vibes, and aesthetics, unlike --sref which focuses only on visual style.",
+            "variation": "Output variation depends on input diversity: similar images produce uniform styles, diverse images yield complex blends.",
+            "limit": "Maximum 500 images per moodboard"
+        },
+        "usage_instructions": {
+            "general": [
+                "Add --p to use default/global profile",
+                "Add --p <code> for a specific profile",
+                "Use multiple --p codes to blend profiles (e.g., --p 1uwjacn 1yjtfcj)"
+            ],
+            "discord_specific": [
+                "Type /list_personalize_codes to list profiles",
+                "Toggle permanently with /settings and [🙋 Personalization] button",
+                "Use --p @name in public channels (not DMs)"
+            ],
+            "web_specific": [
+                "Manage profiles at https://www.midjourney.com/personalize",
+                "Toggle via options button: 'Personalization: [ON] [OFF]'"
+            ],
+            "external_codes": "Use someone else’s code with --p <code>"
+        },
+        "blending": {
+            "multiple_profiles": "Blend profiles with --p <code1> <code2>",
+            "weighting": "Adjust influence with :: (e.g., --p 1uwjacn::1 1yjtfcj::0.5)",
+            "web_note": "Use whole numbers only on web",
+            "with_references": "Blend with --sref and --cref (e.g., owl --sref 4082972121 --p vlp7b25 r9gm7l6)",
+            "faux_weighting": "Duplicate similar boards for stronger influence (e.g., --sref orange --p green blue)"
+        },
+        "additional_tips": {
+            "order": "Order of codes doesn’t matter",
+            "stylize_interaction": "Personalization is a style, compatible with --style raw, controlled by --s (0 min, 1000 max)"
+        }
+    },
     "prompt_basics": {
         "what_is_a_prompt": {
             "description": "A prompt is the text or phrase used to tell Midjourney what kind of image you want to generate.",
@@ -200,150 +222,55 @@ my landscape profile --> c2eqeep
             "description": "Describes the width and height of an image",
             "representation": "Two numbers (e.g., 1:1 or 4:3)",
             "examples": [
-                {
-                    "ratio": "4:3",
-                    "description": "Width is 4 parts, height is 3 parts"
-                },
-                {
-                    "ratio": "1:1",
-                    "description": "Square image"
-                }
+                {"ratio": "4:3", "description": "Width is 4 parts, height is 3 parts"},
+                {"ratio": "1:1", "description": "Square image"}
             ],
             "usage": "Determines if the image is wide (landscape) or tall (portrait)"
         },
         "settingAspectRatio": {
             "method": "Add --ar #:# to the end of your prompt",
-            "locations": [
-                "Imagine bar",
-                "Discord"
-            ],
+            "locations": ["Imagine bar", "Discord"],
             "defaultSetting": "Settings panel in Imagine bar"
         },
         "commonAspectRatios": [
-            {
-                "ratio": "1:1",
-                "description": "Perfect square, popular for social media profile pictures and posts"
-            },
-            {
-                "ratio": "4:3",
-                "description": "Slightly rectangular, used in older TV screens and computer monitors"
-            },
-            {
-                "ratio": "2:3",
-                "description": "Common in printed photography and picture frame sizes"
-            },
-            {
-                "ratio": "16:9",
-                "description": "Widescreen, standard for HD videos and most modern TVs"
-            },
-            {
-                "ratio": "9:16",
-                "description": "Vertical orientation, common for mobile content on social media"
-            }
+            {"ratio": "1:1", "description": "Perfect square, popular for social media profile pictures and posts"},
+            {"ratio": "4:3", "description": "Slightly rectangular, used in older TV screens and computer monitors"},
+            {"ratio": "2:3", "description": "Common in printed photography and picture frame sizes"},
+            {"ratio": "16:9", "description": "Widescreen, standard for HD videos and most modern TVs"},
+            {"ratio": "9:16", "description": "Vertical orientation, common for mobile content on social media"}
         ],
         "additionalTips": [
-            {
-                "tip": "Use image dimensions to find the aspect ratio (e.g., 1920x1080 pixels translates to --ar 16:9)"
-            },
-            {
-                "tip": "Change a generated image's aspect ratio using pan and zoom out tools or the Web Editor on midjourney.com"
-            },
-            {
-                "tip": "Default aspect ratio is 1:1"
-            },
-            {
-                "tip": "--ar cannot contain decimals. Use 139:100 instead of 1.39:1"
-            },
-            {
-                "tip": "Some aspect ratios may be slightly changed when upscaling"
-            },
-            {
-                "tip": "Older Midjourney versions may not support all aspect ratios"
-            },
-            {
-                "tip": "Extremely wide and tall aspect ratios are experimental and may produce unpredictable results"
-            }
+            "Use image dimensions to find the aspect ratio (e.g., 1920x1080 pixels translates to --ar 16:9)",
+            "Change a generated image's aspect ratio using pan and zoom out tools or the Web Editor on midjourney.com",
+            "Default aspect ratio is 1:1",
+            "--ar cannot contain decimals. Use 139:100 instead of 1.39:1",
+            "Some aspect ratios may be slightly changed when upscaling",
+            "Older Midjourney versions may not support all aspect ratios",
+            "Extremely wide and tall aspect ratios are experimental and may produce unpredictable results"
         ],
         "importantNote": "Aspect ratio is not the same as image dimensions. The final size of your Midjourney images will also depend on the model version and Upscaler you're using."
     },
     "art_of_prompting": {
         "artistic_mediums": [
-            "Block Print",
-            "Ballpoint Pen Sketch",
-            "Cyanotype",
-            "Graffiti",
-            "Paint-by-Numbers",
-            "Risograph",
-            "Ukiyo-e",
-            "Pencil Sketch",
-            "Watercolor",
-            "Pixel Art",
-            "Blacklight Painting",
-            "Cross Stitch",
-            "Acrylic Pour",
-            "Cut Paper",
-            "Pressed Flowers",
-            "Oil Painting"
+            "Block Print", "Ballpoint Pen Sketch", "Cyanotype", "Graffiti", "Paint-by-Numbers", "Risograph",
+            "Ukiyo-e", "Pencil Sketch", "Watercolor", "Pixel Art", "Blacklight Painting", "Cross Stitch",
+            "Acrylic Pour", "Cut Paper", "Pressed Flowers", "Oil Painting"
         ],
         "time_periods": [
-            "1400s",
-            "1500s",
-            "1600s",
-            "1700s",
-            "1800s",
-            "1900s",
-            "1910s",
-            "1920s",
-            "1930s",
-            "1940s",
-            "1950s",
-            "1960s",
-            "1970s",
-            "1980s",
-            "1990s",
-            "2000s"
+            "1400s", "1500s", "1600s", "1700s", "1800s", "1900s", "1910s", "1920s", "1930s", "1940s",
+            "1950s", "1960s", "1970s", "1980s", "1990s", "2000s"
         ],
         "emotions": [
-            "Shy",
-            "Determined",
-            "Sad",
-            "Joyful",
-            "Angry",
-            "Happy",
-            "Depressed",
-            "Sleepy"
+            "Shy", "Determined", "Sad", "Joyful", "Angry", "Happy", "Depressed", "Sleepy"
         ],
         "colors": [
-            "Millennial Pink",
-            "Acid Green",
-            "Pink and Blue",
-            "Canary Yellow",
-            "Sepia",
-            "Two Toned",
-            "Pastel",
-            "Duotone",
-            "Ebony",
-            "Neutral",
-            "CMYK",
-            "Indigo",
-            "Iridescent",
-            "Brightly",
-            "Grayscale",
-            "Neon"
+            "Millennial Pink", "Acid Green", "Pink and Blue", "Canary Yellow", "Sepia", "Two Toned",
+            "Pastel", "Duotone", "Ebony", "Neutral", "CMYK", "Indigo", "Iridescent", "Brightly",
+            "Grayscale", "Neon"
         ],
         "environments": [
-            "Tundra",
-            "Salt Flat",
-            "Jungle",
-            "Desert",
-            "Forest",
-            "Cave",
-            "Farm",
-            "Crystal Forest",
-            "City",
-            "Garden",
-            "Suburban",
-            "Ocean"
+            "Tundra", "Salt Flat", "Jungle", "Desert", "Forest", "Cave", "Farm", "Crystal Forest",
+            "City", "Garden", "Suburban", "Ocean"
         ],
         "composition_guidelines": {
             "spatial_relationships": {
@@ -355,10 +282,7 @@ my landscape profile --> c2eqeep
                     {"detail_density": "Higher detail areas interpreted as focal points"}
                 ],
                 "examples": {
-                    "bad": [
-                        "A spaceship behind the mountain",
-                        "Flames in front of the figure"
-                    ],
+                    "bad": ["A spaceship behind the mountain", "Flames in front of the figure"],
                     "good": [
                         "Towering mountain range partially obscuring crescent-shaped starship hull",
                         "Thermal plasma tendrils enveloping the figure's silhouette"
@@ -382,10 +306,7 @@ my landscape profile --> c2eqeep
                         "Light interaction (shadows = behind)"
                     ],
                     "examples": {
-                        "bad": [
-                            "A throne behind the knight",
-                            "Flames in front of the figure"
-                        ],
+                        "bad": ["A throne behind the knight", "Flames in front of the figure"],
                         "good": [
                             "A massive obsidian throne dwarfing the armored knight",
                             "Dancing flames enveloping the figure's silhouette"
@@ -420,11 +341,7 @@ my landscape profile --> c2eqeep
                 "multipleReferenceTypes": "Hold shift to select multiple reference types.",
                 "pinImages": "Click the lock icon to keep your images pinned to the Imagine bar for use with multiple prompts."
             },
-            "imageReferenceTypes": [
-                "Image Prompt (default)",
-                "Style Reference",
-                "Character Reference"
-            ]
+            "imageReferenceTypes": ["Image Prompt (default)", "Style Reference", "Character Reference"]
         },
         "usingInDiscord": {
             "instructions": "Paste your image URL at the beginning of your text prompt. Separate multiple image URLs with a space. For using multiple images without a text prompt, use the Blend command.",
@@ -434,37 +351,16 @@ my landscape profile --> c2eqeep
             "parameter": "--iw",
             "description": "Control how much your Image Prompt affects the final image. If not set, Midjourney uses the default setting. Higher weights mean a bigger impact on the finished image.",
             "weightRanges": {
-                "Version6": {
-                    "default": 1,
-                    "range": "0 - 3"
-                },
-                "Version5": {
-                    "default": 1,
-                    "range": "0 - 2"
-                },
-                "Version4": {
-                    "default": "--",
-                    "range": "--"
-                },
-                "Niji6": {
-                    "default": 1,
-                    "range": "0 - 3"
-                },
-                "Niji5": {
-                    "default": 1,
-                    "range": "0 - 2"
-                }
+                "Version6": {"default": 1, "range": "0 - 3"},
+                "Version5": {"default": 1, "range": "0 - 2"},
+                "Version4": {"default": "--", "range": "--"},
+                "Niji6": {"default": 1, "range": "0 - 3"},
+                "Niji5": {"default": 1, "range": "0 - 2"}
             }
         },
         "additionalTips": {
             "promptRequirements": "You need either multiple Image Prompts or a combination of one Image Prompt and a text prompt for your prompts to work.",
-            "supportedFormats": [
-                ".png",
-                ".gif",
-                ".webp",
-                ".jpg",
-                ".jpeg"
-            ],
+            "supportedFormats": [".png", ".gif", ".webp", ".jpg", ".jpeg"],
             "aspectRatio": "Crop your image to match the aspect ratio of your final image for the best results.",
             "parameterCompatibility": "Prompts that only use images and no text are not compatible with the --stylize or --weird parameters."
         },
@@ -507,10 +403,7 @@ my landscape profile --> c2eqeep
                 "Character References can be used with Midjourney and Niji version 6."
             ],
             "Examples": {
-                "BadPromptExamples": [
-                    "put this man in a cafe",
-                    "add this man to a cafe setting"
-                ],
+                "BadPromptExamples": ["put this man in a cafe", "add this man to a cafe setting"],
                 "GoodPromptExamples": [
                     "a man with blue hair and gold glasses sitting in a cafe",
                     "illustration of a man sitting alone in a cafe"
@@ -527,25 +420,15 @@ my landscape profile --> c2eqeep
                 "SettingAsStyleReference": "Hover over the image in the Imagine bar and ensure the paper clip icon is selected. Hold shift to select multiple reference types.",
                 "PinningImages": "Click the lock icon to keep images pinned to the Imagine bar for use with multiple prompts."
             },
-            "ImageReferenceTypes": [
-                "Image Prompt (default)",
-                "Style Reference",
-                "Character Reference"
-            ],
+            "ImageReferenceTypes": ["Image Prompt (default)", "Style Reference", "Character Reference"],
             "UsingStyleReferenceInDiscord": {
                 "Instructions": "Add the `--sref` parameter to your prompt followed by the image URL. Separate multiple URLs with a space.",
                 "ImageURL": "Ensure the image URL is valid and accessible online."
             },
             "BestPractices": {
                 "TextPrompt": "Keep it simple and avoid adding style words. Use it to describe your creative vision.",
-                "BadPromptExamples": [
-                    "the look of this image but a dog",
-                    "copy this style and make a bunny"
-                ],
-                "GoodPromptExamples": [
-                    "detailed portrait of a dog",
-                    "ballpoint pen sketch of a bunny"
-                ]
+                "BadPromptExamples": ["the look of this image but a dog", "copy this style and make a bunny"],
+                "GoodPromptExamples": ["detailed portrait of a dog", "ballpoint pen sketch of a bunny"]
             },
             "StyleWeight": {
                 "Parameter": "--sw",
@@ -570,13 +453,7 @@ my landscape profile --> c2eqeep
             },
             "AdditionalNotes": {
                 "TextPromptRequirement": "A text prompt is required in combination with the Style Reference.",
-                "SupportedImageFormats": [
-                    ".png",
-                    ".gif",
-                    ".webp",
-                    ".jpg",
-                    ".jpeg"
-                ],
+                "SupportedImageFormats": [".png", ".gif", ".webp", ".jpg", ".jpeg"],
                 "Compatibility": "Can be used with Midjourney and Niji Version 6 and combined with Character References and Image Prompts.",
                 "AssigningWeights": "Individual Style References can be assigned different weights using the format `--sref URL1::2 URL2::1 URL3::1`."
             }
@@ -600,11 +477,7 @@ my landscape profile --> c2eqeep
             "Moodboard Profiles": {
                 "Description": "Created by selecting inspiring images to set a particular mood or vibe.",
                 "Function": "Acts like a vision board for ideas you want to capture.",
-                "Image Sources": [
-                    "Upload your own images",
-                    "Provide image URLs",
-                    "Select images from your gallery"
-                ]
+                "Image Sources": ["Upload your own images", "Provide image URLs", "Select images from your gallery"]
             }
         },
         "Personalization Walkthrough": {
@@ -615,372 +488,213 @@ my landscape profile --> c2eqeep
                 ]
             },
             "Create Standard Profile": {
-                "Actions": [
-                    "Click 'Create Standard Profile'",
-                    "Rank pairs of images until the profile is unlocked"
-                ]
+                "Actions": ["Click 'Create Standard Profile'", "Rank pairs of images until the profile is unlocked"]
             },
             "Create Moodboard Profile": {
-                "Actions": [
-                    "Click 'Create Moodboard'",
-                    "Add images from your computer, URLs, or gallery"
-                ]
+                "Actions": ["Click 'Create Moodboard'", "Add images from your computer, URLs, or gallery"]
             },
             "Copy Profile Code": {
-                "Actions": [
-                    "Use the 'Copy Code' button to add the profile ID to your Imagine bar or clipboard"
-                ]
+                "Actions": ["Use the 'Copy Code' button to add the profile ID to your Imagine bar or clipboard"]
             }
         },
         "Using Personalization": {
-            "Default Profile": {
-                "Command": "Add `--p` to the end of your prompt"
-            },
-            "Specific Profiles": {
-                "Command": "Use the profile ID (e.g., `--p pID`)"
-            },
+            "Default Profile": {"Command": "Add `--p` to the end of your prompt"},
+            "Specific Profiles": {"Command": "Use the profile ID (e.g., `--p pID`)"},
             "Default Setting": {
-                "Actions": [
-                    "Set a default personalization profile in the settings panel to apply to all future prompts"
-                ]
+                "Actions": ["Set a default personalization profile in the settings panel to apply to all future prompts"]
             }
         },
         "Personalization Codes": {
             "Generation": "Profiles generate new codes as you like, rank, and add more image data.",
             "Usage": "Use the latest code by copying the ID from your profile.",
-            "Older Codes": {
-                "Retrieval": "Use the `/list_personalize_codes` command in Discord"
-            }
+            "Older Codes": {"Retrieval": "Use the `/list_personalize_codes` command in Discord"}
         },
         "Managing Profiles": {
-            "Actions": [
-                "Rename or delete profiles by hovering over them and using the pencil or trash can buttons"
-            ],
+            "Actions": ["Rename or delete profiles by hovering over them and using the pencil or trash can buttons"],
             "Deleted Profiles": "Can still be used with previously created codes"
         },
         "Stylize Parameter": {
             "Function": "Controls the extent of personalization applied to the image.",
-            "Values": {
-                "Range": "0 to 1000",
-                "Default": "100"
-            }
+            "Values": {"Range": "0 to 1000", "Default": "100"}
         }
     },
     "controller": {
         "description": "Control, customize, and enhance your images with parameters in Midjourney.",
         "parameters": {
-            "aspect_ratio": {
-                "description": "Change the aspect ratio of your image.",
-                "parameters": [
-                    "--aspect",
-                    "--ar"
-                ]
-            },
-            "chaos": {
-                "description": "Add variety to your image results.",
-                "parameters": [
-                    "--chaos",
-                    "--c"
-                ]
-            },
-            "character_reference": {
-                "description": "Use the same character in multiple images.",
-                "parameters": [
-                    "--cref"
-                ]
-            },
+            "aspect_ratio": {"description": "Change the aspect ratio of your image.", "parameters": ["--aspect", "--ar"]},
+            "chaos": {"description": "Add variety to your image results.", "parameters": ["--chaos", "--c"]},
+            "character_reference": {"description": "Use the same character in multiple images.", "parameters": ["--cref"]},
             "no": {
                 "description": "Specify elements you do not want to appear in your generated image.",
-                "parameters": [
-                    "--no"
-                ],
+                "parameters": ["--no"],
                 "details": {
-                    "usage": "Add `--no` to the end of your prompt in the Imagine bar or in Discord, followed by the list of things you don't want in your image.",
+                    "usage": "Add `--no` to the end of your prompt followed by the list of things you don't want.",
                     "examples": {
-                        "bad": [
-                            "still life gouache painting without any fruit",
-                            "still life gouache painting, please don't add fruit!"
-                        ],
-                        "good": [
-                            "still life gouache painting --no fruit, apple, pear"
-                        ]
+                        "bad": ["still life gouache painting without any fruit", "still life gouache painting, please don't add fruit!"],
+                        "good": ["still life gouache painting --no fruit, apple, pear"]
                     },
                     "important_notes": [
-                        "Midjourney's moderation system reads each word in the `--no` parameter independently. For instance, using `--no modern clothing` might be interpreted as 'no modern' and 'no clothing,' which could accidentally trigger a warning.",
-                        "It's better to specify the type of clothing you do want in your prompt rather than using `--no`."
-                    ],
-                    "equivalence": "Using the `--no` parameter is equivalent to weighing part of a multi-prompt to '-0.5.' For more detailed information, refer to the article on Multi-Prompts & Weights on Midjourney's documentation."
+                        "Midjourney reads each word in `--no` independently (e.g., `--no modern clothing` might be 'no modern' and 'no clothing').",
+                        "Specify desired elements instead of using `--no` when possible."
+                    ]
                 }
             },
-            "personalization": {
-                "description": "Create custom image styles with personalized profiles and moodboards.",
-                "parameters": [
-                    "--profile",
-                    "--p"
-                ]
-            },
+            "personalization": {"description": "Create custom image styles with personalized profiles and moodboards.", "parameters": ["--profile", "--p"]},
             "quality": {
                 "description": "Control the detail and processing time of your generated images.",
-                "parameters": [
-                    "--quality",
-                    "--q"
-                ],
+                "parameters": ["--quality", "--q"],
                 "details": {
                     "quality_settings": {
-                        "lower_quality": {
-                            "description": "Similar to drawing a quick sketch. Faster results with fewer details. Ideal for quickly trying out many ideas without using much GPU time.",
-                            "examples": [
-                                0.25,
-                                0.5
-                            ]
-                        },
-                        "higher_quality": {
-                            "description": "Similar to creating a detailed painting. More time and effort, resulting in more textures and details. Can sometimes make things look a bit off if too much detail is added.",
-                            "examples": [
-                                1,
-                                2
-                            ]
-                        }
+                        "lower_quality": {"description": "Faster results with fewer details.", "examples": [0.25, 0.5]},
+                        "higher_quality": {"description": "More textures and details, may over-detail.", "examples": [1, 2]}
                     },
                     "default_and_available_options": {
                         "default": 1,
-                        "affects": "Only affects the initial image generation, not the later variations or upscales.",
+                        "affects": "Only initial image generation.",
                         "available_values": {
-                            "version_6.1": [
-                                0.5,
-                                1,
-                                2
-                            ],
-                            "versions_6_5.2_niji_5": [
-                                0.25,
-                                0.5,
-                                1
-                            ]
+                            "version_6.1": [0.5, 1, 2],
+                            "versions_6_5.2_niji_5": [0.25, 0.5, 1]
                         }
                     },
-                    "usage": "Add `--q #` to the end of your prompt in the Imagine bar or in Discord, where `#` is the desired quality value."
+                    "usage": "Add `--q #` to the end of your prompt."
                 }
             },
-            "repeat": {
-                "description": "Generate multiple image sets from a single prompt.",
-                "parameters": [
-                    "--repeat",
-                    "--r"
-                ]
-            },
-            "seed": {
-                "description": "Use for testing and experimenting.",
-                "parameters": [
-                    "--seed"
-                ]
-            },
-            "stop": {
-                "description": "Achieve a softer or unique look by stopping the image generation partway.",
-                "parameters": [
-                    "--stop"
-                ]
-            },
+            "repeat": {"description": "Generate multiple image sets from a single prompt.", "parameters": ["--repeat", "--r"]},
+            "seed": {"description": "Use for testing and experimenting.", "parameters": ["--seed"]},
+            "stop": {"description": "Achieve a softer or unique look by stopping generation partway.", "parameters": ["--stop"]},
             "raw_mode": {
                 "description": "Gain more control over your images with Raw Mode.",
-                "parameters": [
-                    "--style raw"
-                ],
+                "parameters": ["--style raw"],
                 "details": {
                     "standard_mode_vs_raw_mode": {
-                        "standard_mode": "The default setting that applies Midjourney's visual aesthetic, adding extra polish and beautification automatically. It's like using a coloring book with outlines and shading tips.",
-                        "raw_mode": "An alternative option that gives you full control over the image, similar to painting on a blank canvas. It sticks closely to your prompt directions, allowing for more photo-realistic images, cinematic scenes, or specific styles without additional styling."
+                        "standard_mode": "Applies Midjourney's aesthetic automatically.",
+                        "raw_mode": "Full control, ideal for photo-realism or specific styles."
                     },
                     "benefits": [
-                        "More control over your prompt directions.",
-                        "Ideal for creating photo-realistic images that closely match your descriptions without extra styling.",
-                        "Compatible with Midjourney versions 5.1 and later."
+                        "More control over prompt directions",
+                        "Ideal for photo-realistic images",
+                        "Compatible with versions 5.1+"
                     ],
                     "usage": {
-                        "adding_to_prompts": {
-                            "imagine_bar": "Add `--style raw` to the end of your prompt.",
-                            "discord": "Add `--style raw` to the end of your prompt."
-                        },
-                        "setting_as_default": {
-                            "imagine_bar": "Click the settings button and set your Mode to Raw. This will apply to all future prompts.",
-                            "discord": "Use the settings command and click `🔧 RAW Mode`."
-                        }
+                        "adding_to_prompts": "Add `--style raw` to the end of your prompt.",
+                        "setting_as_default": "Set Mode to Raw in settings."
                     },
-                    "important_notes": [
-                        "Detailed prompts are essential in Raw Mode. If your instructions are unclear or lack details, the resulting image might not be visually appealing.",
-                        "In earlier Midjourney versions, the `--style` parameter had other functions, which are detailed in the Legacy Features article."
-                    ]
+                    "important_notes": ["Detailed prompts are essential in Raw Mode."]
                 }
             },
             "stylize": {
                 "description": "Control the artistic flair in your images.",
-                "parameters": [
-                    "--stylize",
-                    "--s"
-                ],
+                "parameters": ["--stylize", "--s"],
                 "details": {
-                    "purpose": "The `--stylize` parameter acts like a slider that adjusts the level of artistic creativity applied to your image.",
-                    "low_stylize_setting": "At a low setting, the image closely follows your prompt with minimal extra flair.",
-                    "high_stylize_setting": "At a higher setting, Midjourney has more freedom to interpret your idea, resulting in more artistic and visually interesting images, but they may stray from the exact details of your prompt.",
+                    "purpose": "Adjusts artistic creativity level.",
+                    "low_stylize_setting": "Closely follows prompt with minimal flair.",
+                    "high_stylize_setting": "More artistic, may stray from prompt.",
                     "default_value": 100,
-                    "range": "You can adjust the stylize value between 0 and 1000.",
-                    "usage": [
-                        "Add `--s #` to the end of your prompt in the Imagine bar.",
-                        "Set a default stylization for all your images in the settings panel.",
-                        "Add `--s #` to the end of your prompt in Discord.",
-                        "Use the settings command and select one of the Stylize preset buttons (e.g., `🖌️ Stylize med` is the default)."
-                    ]
+                    "range": "0 to 1000",
+                    "usage": ["Add `--s #` to the end of your prompt."]
                 }
             },
-            "style_reference": {
-                "description": "Match the look and feel of another image.",
-                "parameters": [
-                    "--sref"
-                ]
-            },
-            "tile": {
-                "description": "Create seamless repeating patterns.",
-                "parameters": [
-                    "--tile"
-                ]
-            },
-            "version": {
-                "description": "Explore and switch between Midjourney's model versions.",
-                "parameters": [
-                    "--version",
-                    "--v"
-                ]
-            },
-            "video": {
-                "description": "Create a short clip of your image generating in Discord.",
-                "parameters": [
-                    "--video"
-                ]
-            },
-            "weird": {
-                "description": "Make your images quirky and unconventional.",
-                "parameters": [
-                    "--weird",
-                    "--w"
-                ]
-            },
-            "fast_mode": {
-                "description": "Switch your GPU speed to Fast Mode.",
-                "parameters": [
-                    "--fast"
-                ]
-            },
-            "image_weight": {
-                "description": "Control the impact of image prompts.",
-                "parameters": [
-                    "--iw"
-                ]
-            },
-            "relax_mode": {
-                "description": "Switch your GPU speed to Relax Mode.",
-                "parameters": [
-                    "--relax"
-                ]
-            },
-            "turbo_mode": {
-                "description": "Switch your GPU speed to Turbo Mode.",
-                "parameters": [
-                    "--turbo"
-                ]
-            },
-            "niji": {
-                "description": "Use the model focused on anime and Eastern aesthetics.",
-                "parameters": [
-                    "--niji"
-                ]
-            },
-            "stealth_mode": {
-                "description": "Unpublish your image creations on the Midjourney website.",
-                "parameters": [
-                    "--stealth"
-                ]
-            },
-            "public_mode": {
-                "description": "Publish your image creations on the Midjourney website.",
-                "parameters": [
-                    "--public"
-                ]
-            },
+            "style_reference": {"description": "Match the look and feel of another image.", "parameters": ["--sref"]},
+            "tile": {"description": "Create seamless repeating patterns.", "parameters": ["--tile"]},
+            "version": {"description": "Switch between Midjourney's model versions.", "parameters": ["--version", "--v"]},
+            "video": {"description": "Create a short clip of your image generating in Discord.", "parameters": ["--video"]},
+            "weird": {"description": "Make your images quirky and unconventional.", "parameters": ["--weird", "--w"]},
+            "fast_mode": {"description": "Switch GPU speed to Fast Mode.", "parameters": ["--fast"]},
+            "image_weight": {"description": "Control the impact of image prompts.", "parameters": ["--iw"]},
+            "relax_mode": {"description": "Switch GPU speed to Relax Mode.", "parameters": ["--relax"]},
+            "turbo_mode": {"description": "Switch GPU speed to Turbo Mode.", "parameters": ["--turbo"]},
+            "niji": {"description": "Use the model focused on anime and Eastern aesthetics.", "parameters": ["--niji"]},
+            "stealth_mode": {"description": "Unpublish your image creations.", "parameters": ["--stealth"]},
+            "public_mode": {"description": "Publish your image creations.", "parameters": ["--public"]},
             "remix_mode": {
                 "description": "Tweak or adjust your prompt text while working on your images.",
                 "details": {
                     "key_features": [
-                        "Prompt Modification: Edit the prompt associated with an image to generate new variations.",
-                        "Parameter Adjustment: Add or remove parameters while using Remix Mode. Ensure parameters are compatible to avoid errors.",
-                        "Variation Options: Offers Subtle and Strong options to control how different the new images are from the original."
+                        "Prompt Modification: Edit the prompt to generate new variations.",
+                        "Parameter Adjustment: Add or remove compatible parameters.",
+                        "Variation Options: Subtle and Strong options."
                     ],
                     "usage": {
                         "web": [
-                            "Click on any image you've created on the Create or Organize page to open it and reveal more options.",
-                            "Look for the 'Creation Actions' section where you'll find the Remix options. Choose from Subtle or Strong.",
-                            "If the Remix options are not visible, click 'More options' and add a checkmark next to Remix.",
-                            "After selecting a Remix option, your original prompt and image will populate in the Imagine bar with the 'remix' label. Edit your prompt and submit it.",
-                            "Use the Reset Prompt button to revert to the original prompt if needed.",
-                            "For additional edits, click the 'Editor' button to load the image into Midjourney's Editor, where you can make multiple changes at once (pan, zoom out, remix, and vary region)."
-                        ],
-                        "discord": "The process is similar to the web version, but the specific steps may vary slightly. Ensure you follow the instructions provided in the Discord interface."
+                            "Click an image on Create or Organize page.",
+                            "Choose Remix (Subtle or Strong) under 'Creation Actions'.",
+                            "Edit prompt in Imagine bar with 'remix' label."
+                        ]
                     },
-                    "compatibility": "Compatible with various Midjourney versions, but users must ensure that the parameters they adjust are compatible with the selected model version. Incompatible parameters can result in errors.",
-                    "additional_tips": [
-                        "Experimentation: Users are encouraged to experiment with prompts and parameters to achieve the desired results. Working in small steps and focusing on one part of the image at a time can help in creating detailed and refined images.",
-                        "Avoiding Common Pitfalls: Users should avoid conversational prompts and be direct in their instructions. For example, instead of saying 'Please change the meadow trail into a beautiful stream,' use 'meadow stream.' This direct approach helps in achieving more accurate results."
-                    ]
+                    "additional_tips": ["Be direct in instructions (e.g., 'meadow stream' vs. 'change meadow trail')."]
                 }
             },
             "text_generation": {
                 "description": "Include words or phrases in your generated images.",
                 "details": {
-                    "overview": "Midjourney versions 6 and 6.1 allow users to include words or phrases in their generated images by enclosing them in double quotation marks (`\" \"`). This feature is particularly effective with the standard Latin alphabet, such as English letters.",
-                    "usage": "To add text to an image, surround the desired words or phrases with double quotation marks in your prompt. For example, to create an image of a cyberpunk cat with a neon sign that says 'Midjourney,' use the prompt: `\"a cyberpunk cat with a neon sign that says 'Midjourney'\"`. Single quotes or apostrophes (`' '`) will not work for this purpose.",
+                    "overview": "Versions 6 and 6.1 support text in double quotes (e.g., `\"Midjourney\"`).",
+                    "usage": "Surround text with `\" \"` in your prompt.",
                     "best_practices": [
-                        "Shorter words or phrases tend to appear more accurately in the images.",
-                        "Including phrases like 'with the words,' 'text,' or 'written' in your prompt can improve the text's visibility.",
-                        "If the text does not appear as desired, consider using the `--style raw` option or lowering the Stylize value.",
-                        "The Editor on the web or the Vary Region feature in Discord can help fix minor issues with the text."
+                        "Shorter phrases work better.",
+                        "Add 'text' or 'written' to prompt.",
+                        "Use `--style raw` or lower `--s` if text fails."
                     ],
                     "examples": {
-                        "bad": [
-                            "a logo with the company name Boing",
-                            "put the text 'Hello' in a frame"
-                        ],
-                        "good": [
-                            "a pastel watercolor landscape with \"imagine\" written in the clouds",
-                            "a cartoon drawing of a manual with the words \"read the docs\" in big text on the pages"
-                        ]
-                    },
-                    "community_support": "For additional help or tips, users can visit the Prompt Craft channel on Discord or the Prompt Craft Room on the web, where the Midjourney community actively assists each other."
+                        "bad": ["a logo with the company name Boing"],
+                        "good": ["a pastel watercolor landscape with \"imagine\" written in the clouds"]
+                    }
                 }
             }
         },
         "usage_tips": [
             "Place parameters at the end of your prompt text.",
-            "Add a space between your prompt text and the dashes.",
-            "Avoid spaces between and right after the dashes.",
-            "Do not use commas, periods, or other punctuation marks in your parameters."
+            "Add a space between prompt text and dashes.",
+            "Avoid spaces between and right after dashes.",
+            "Do not use commas, periods, or punctuation in parameters."
         ],
         "examples": {
             "correct": "vibrant California poppies --ar 2:3",
             "incorrect": [
-                "vibrant California poppies - - ar 2:3 (Extra space between dashes)",
-                "vibrant California poppies --ar 2:3, (Using punctuation in parameters)",
-                "vibrant California --ar 2:3 poppies (Prompt text after parameters)"
+                "vibrant California poppies - - ar 2:3",
+                "vibrant California poppies --ar 2:3,",
+                "vibrant California --ar 2:3 poppies"
             ]
-        },
-        "parameter_usage": {
-            "formatting_rules": {
-                "no_parentheses": "Keep parameters clean: '--ar 16:9' not (--ar 16:9)",
-                "validated_parameters": [
-                    "--ar", "--stylize", "--no", "--profile", "--sref"
-                ],
-                "example": {
-                    "bad": "glowing eyes (hex #FFFFFF) --stylize(85)",
-                    "good": "glowing white eyes --stylize 85"
-                }
-            }
         }
-    }
+    },
+    "example_prompts": [
+        {
+            "prompt": "photo of a joyful elderly man with white hair, a beard, and glasses, carrying a smiling child with spiky black hair on his shoulders. The characters are surrounded by a clear blue sky with scattered white clouds, and delicate butterflies fluttering around. The elderly man wears a dark robe with yellow accents and golden bead necklace, while the child wears a dark outfit with light trims. The mood is cheerful and uplifting, emphasizing familial bonding and playful energy. Gentle, soft colors and rounded, exaggerated shapes create a friendly and nostalgic atmosphere. --ar 16:9 --sref https://s.mj.run/wjdET5GRMOE --p ucncfyq gnnot2m l3viaqs --sw 10 --stylize 460"
+        },
+        {
+            "prompt": "https://s.mj.run/WWymxgA7_O4 Humpback whale underwater portrait, crystal-clear turquoise ocean depths. Majestic whale swimming at an upward angle, displaying dark textured skin with prominent ventral grooves and extended pectoral fins. Dramatic crepuscular rays pierce through rippling surface waters, casting dappled light across the whale's massive profile. Dynamic ocean currents create surface patterns, while deep turquoise waters fade to darker depths. The composition balances the whale's scale against the vast ocean expanse --ar 2:3 --style raw"
+        },
+        {
+            "prompt": "https://s.mj.run/dk-e5wMWeX8 waterline photography of a humpback whale swimming underwater, eye with fine details, some barnacles on the skin. The ocean below is a gradient of deep blue, above is cloudy sky and gentle waves. --ar 16:9"
+        },
+        {
+            "prompt": "https://s.mj.run/wKHiN2KATqE A young, handsome boy with glowing blue cybernetic eyes holds a small, futuristic hedgehog with metallic spines. The sandy desert is transformed into a neon-lit cyberpunk wasteland with glowing holograms and futuristic structures in the distance. The golden sand reflects vibrant hues of neon blue and pink, creating a dramatic and cinematic atmosphere --ar 16:9 --p r32hfq7 --stylize 60"
+        },
+        {
+            "prompt": "A mysterious hooded figure with an intense gaze, sitting in a high-tech cyberpunk control room, surrounded by glowing neon screens and holographic interfaces, the color palette dominated by cold blue and teal tones with contrasting accents of orange and red, the lighting is moody and cinematic, emphasizing the figure's anonymity and focus, a futuristic dystopian atmosphere, intricate technological details in the background, realistic and detailed textures, dramatic shadows and highlights, central composition with symmetrical balance, 4k resolution, hyperrealistic, cyberpunk aesthetic --ar 91:51 --stylize 50"
+        },
+        {
+            "prompt": "A small whimsical wooden house with intricate details and a steep roof, nestled in a bright, sunlit enchanted forest with towering trees. Soft warm yellow sunlight filters through the trees, creating dappled light on the lush green foliage. A small arched stone bridge crosses a calm, surrounded by moss-covered rocks. magical yet serene warm tones --ar 16:9 --p t6samk4 --stylize 90"
+        },
+        {
+            "prompt": "https://s.mj.run/QBErD79xTbk A photograph of Los Angeles skyscrapers taken from the ground, soft blue clear sky. --ar 91:51 --stylize 50"
+        },
+        {
+            "prompt": "Photo of a traditional circular Korean madang courtyard during the spring season at sunrise, featuring vibrant blossoms of cherry trees surrounding the courtyard. The stone pathway leads to a wooden hanok with intricate lattice windows, soft sunlight illuminating mossy stones and fresh greenery. Tranquil and balanced design, blending traditional Korean architecture with lush springtime elements. --ar 16:9 --stylize 50"
+        },
+        {
+            "prompt": "https://s.mj.run/wSFmKgZ17zc A 3D abstract composition of geometric shapes with a focus on dynamic squares and rectangles, radiating outward from a central focal point. The design features a dark gray background, with shapes in varying sizes and shades of blue, black, gray, and white. The arrangement conveys depth and movement, with elements becoming denser and smaller near the center. Clean, futuristic, and modern aesthetic, flat even lighting, emphasizing contrast and sharp edges, digital art style, high resolution --ar 16:9 --sref https://s.mj.run/n2Vz6GWG3oM --sw 25 --stylize 50 --iw 0.6"
+        },
+        {
+            "prompt": "A majestic adult golden tabby tiger with silky, fluffy fur and a pale cream-to-golden gradient, its face framed by thick, soft fur. The tiger gazes directly at the viewer with large, soulful eyes, its pink nose and subtle whiskers adding to its charm. The background features a serene, glowing meadow with blurred wildflowers, creating a magical and inviting atmosphere. Hyper-detailed, soft golden light, dreamy mood --ar 16:9 --stylize 50"
+        },
+        {
+            "prompt": "An abstract piece of air flowing forms a semi-transparent sphere representing peaceful. Use bold, contrasting colors --ar 16:9 --style raw --p l2vlr4v xzmzxdw 8h3cnwa --stylize 50"
+        },
+        {
+            "prompt": "An abstract piece of air flowing forms a semi-transparent sphere representing peaceful. Use bold, contrasting colors --ar 16:9 --style raw --p l2vlr4v xzmzxdw --stylize 50"
+        },
+        {
+            "prompt": "An abstract piece of air flowing forms a semi-transparent sphere representing peaceful. Use bold, contrasting colors --ar 16:9 --style raw --p dg84cpz d1a6wbq --stylize 50"
+        }
+    ]
 }
