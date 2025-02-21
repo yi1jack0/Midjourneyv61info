@@ -102,27 +102,16 @@
                     ],
                     "usage": "Reference with --p <code>",
                     "examples": {
-                        "landscape_profile": "c2eqeep",
+                        "landscape": "c2eqeep",
                         "cybot_portrait": "r32hfq7",
                         "greens_in_garden": "ucncfyq",
                         "chinese_new_year_2025": "gnnot2m",
                         "classic_chinese_artwork": "qv55fux",
-                        "chinese_new_year_theme": "sniu4nv"
+                        "chinese_new_year_theme": "sniu4nv",
+                        "surreal_colorful_landscape":"l2vlr4v xzmzxdw 8h3cnwa",
+                        "abstract_organic_landscape":"l2vlr4v xzmzxdw",
+                        "autumnal_serene_landscape":"dg84cpz d1a6wbq"
                     }
-                }
-            },
-            "preferred_combinations": {
-                "combo_1": {
-                    "codes": ["l2vlr4v", "xzmzxdw", "8h3cnwa"],
-                    "example": "A blend for bold, abstract, and peaceful aesthetics with strong contrasting colors. --p l2vlr4v xzmzxdw 8h3cnwa --ar 16:9 --style raw --stylize 50"
-                },
-                "combo_2": {
-                    "codes": ["l2vlr4v", "xzmzxdw"],
-                    "example": "A simpler blend focusing on abstract air flows and bold visuals. --p l2vlr4v xzmzxdw --ar 16:9 --style raw --stylize 50"
-                },
-                "combo_3": {
-                    "codes": ["dg84cpz", "d1a6wbq"],
-                    "example": "A combination for abstract, semi-transparent forms with a peaceful vibe. --p dg84cpz d1a6wbq --ar 16:9 --style raw --stylize 50"
                 }
             }
         },
